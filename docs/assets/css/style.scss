@@ -140,16 +140,18 @@ body {
     align-items: center;
     gap: 4rem;
     flex-wrap: wrap;
-}
-
-.integration-logos img {
-    height: 2.5rem;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-}
-
-.integration-logos img:hover {
-    opacity: 1;
+    margin: 2rem 0;
+    
+    img {
+        height: 48px;
+        width: 48px;
+        opacity: 0.8;
+        transition: opacity 0.2s;
+        
+        &:hover {
+            opacity: 1;
+        }
+    }
 }
 
 /* Getting Started */

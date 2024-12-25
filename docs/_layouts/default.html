@@ -76,6 +76,105 @@
         </div>
     </section>
 
+    <!-- After the Integration Section -->
+    <section class="roles">
+        <div class="container">
+            <h2>Specialized Role Evaluation</h2>
+            <div class="roles-container">
+                <button class="scroll-indicator left" onclick="scrollRoles('left')">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="roles-grid">
+                    <div class="role-card">
+                        <i class="fa-solid fa-handshake"></i>
+                        <h3>Sales Development</h3>
+                        <ul>
+                            <li>Lead Qualification</li>
+                            <li>Outbound Sequences</li>
+                            <li>Meeting Scheduling</li>
+                            <li>Pipeline Management</li>
+                        </ul>
+                    </div>
+                    <div class="role-card">
+                        <i class="fa-solid fa-bullhorn"></i>
+                        <h3>Marketing</h3>
+                        <ul>
+                            <li>Campaign Analysis</li>
+                            <li>Content Creation</li>
+                            <li>A/B Testing</li>
+                            <li>ROI Tracking</li>
+                        </ul>
+                    </div>
+                    <div class="role-card">
+                        <i class="fa-solid fa-headset"></i>
+                        <h3>Customer Support</h3>
+                        <ul>
+                            <li>Ticket Resolution</li>
+                            <li>Response Quality</li>
+                            <li>Customer Satisfaction</li>
+                            <li>SLA Compliance</li>
+                        </ul>
+                    </div>
+                    <div class="role-card">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h3>Business Analysis</h3>
+                        <ul>
+                            <li>Data Analysis</li>
+                            <li>Report Generation</li>
+                            <li>Trend Identification</li>
+                            <li>Recommendations</li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="scroll-indicator right" onclick="scrollRoles('right')">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="customization">
+        <div class="container">
+            <h2>Enterprise Customization</h2>
+            <div class="custom-grid">
+                <div class="custom-card">
+                    <i class="fa-solid fa-database"></i>
+                    <h3>Synthetic Data Generation</h3>
+                    <p>Create realistic business data for safe testing:</p>
+                    <ul>
+                        <li>Sales pipelines</li>
+                        <li>Customer interactions</li>
+                        <li>Market scenarios</li>
+                        <li>Team dynamics</li>
+                    </ul>
+                </div>
+                <div class="custom-card">
+                    <i class="fa-solid fa-sliders"></i>
+                    <h3>Custom Evaluation Criteria</h3>
+                    <p>Define your standards:</p>
+                    <ul>
+                        <li>Sales: Pipeline velocity, open rate</li>
+                        <li>Support: CSAT, first-response time</li>
+                        <li>Marketing: CAC, conversion rates</li>
+                        <li>Brand Voice: Tone & style</li>
+                        <li>Technical: API use, test coverage</li>
+                    </ul>
+                </div>
+                <div class="custom-card">
+                    <i class="fa-solid fa-plug"></i>
+                    <h3>Sandbox Integrations</h3>
+                    <p>Test with your tools:</p>
+                    <ul>
+                        <li>CRM systems</li>
+                        <li>Support platforms</li>
+                        <li>Marketing tools</li>
+                        <li>Analytics suites</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Getting Started -->
     <section id="getting-started" class="getting-started">
         <div class="container">
@@ -112,7 +211,7 @@
             <div class="battle-content">
                 <h2>Coming Soon: AI Agent Battles! 🚀</h2>
                 <p>Pit teams of specialized AI agents against each other in complex business scenarios</p>
-                <a href="#" class="btn btn-primary">Learn More</a>
+                <a href="https://github.com/ninajlu/ai-agent-benchmark?tab=readme-ov-file#multi-agent-team-competitions" class="btn btn-primary">Learn More</a>
             </div>
         </div>
     </section>
@@ -128,7 +227,7 @@
                 </div>
                 <div class="footer-section">
                     <h4>Community</h4>
-                    <a href="#">GitHub</a>
+                    <a href="https://github.com/ninajlu/ai-agent-benchmark">GitHub</a>
                     <a href="#">Discord</a>
                     <a href="#">Twitter</a>
                 </div>
@@ -164,6 +263,23 @@
                 button.innerHTML = '<i data-feather="copy"></i>'
                 feather.replace()
             }, 2000)
+        }
+
+        function scrollRoles(direction) {
+            const container = document.querySelector('.roles-grid');
+            const scrollAmount = 300; // Width of one card
+            
+            if (direction === 'left') {
+                container.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else {
+                container.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
         }
     </script>
 </body>

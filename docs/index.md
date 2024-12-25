@@ -1,3 +1,8 @@
+---
+layout: default
+title: Home
+---
+
 # AI Agent Benchmarking Framework
 
 ## Why This Framework?

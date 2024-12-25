@@ -1,0 +1,110 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.python-version
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.npm
+.yarn
+.pnp.*
+
+# IDE/Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+# Credentials and secrets
+credentials.json
+*_credentials.json
+.env.local
+.env.*.local
+
+# Build output
+docs/_site/
+docs/.jekyll-cache/
+docs/.jekyll-metadata
+docs/assets/images/*.svg
+
+# Test coverage
+.coverage
+htmlcov/
+.tox/
+.nox/
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Benchmark results
+results/
+experiments/results/
+*.benchmark
+*.log
+
+# Database
+*.db
+*.sqlite3
+*.sqlite
+
+# Distribution
+dist/
+build/
+*.tar.gz
+*.zip
+
+# Documentation
+docs/_build/
+docs/generated/ 

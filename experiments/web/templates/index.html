@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Agent Benchmarks - Leaderboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>AI Agent Benchmarks</h1>
+    
+    <table class="leaderboard">
+        <tr>
+            <th>Rank</th>
+            <th>Agent</th>
+            <th>Score</th>
+            <th>Tasks</th>
+            <th>Status</th>
+            <th>Submitted</th>
+        </tr>
+        {% for rank, entry in enumerate(rankings, 1) %}
+        <tr>
+            <td>{{ rank }}</td>
+            <td><a href="{{ url_for('submission_details', submission_id=entry.submission_id) }}">
+                {{ entry.agent_name }}
+            </a></td>
+            <td>{{ "%.2f"|format(entry.score) }}</td>
+            <td>{{ entry.task_count }}</td>
+            <td>{{ "✅" if entry.verified else "⏳" }}</td>
+            <td>{{ entry.submitted_at }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html> 

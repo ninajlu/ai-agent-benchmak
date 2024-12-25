@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Agent Benchmark Configuration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/output.css') }}">
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="border-b">
+            <div class="container flex h-16 items-center px-4">
+                <h1 class="text-xl font-bold">AI Agent Benchmark</h1>
+                <div class="ml-auto">
+                    <select v-model="config.environment"
+                            class="select select-bordered w-full max-w-xs">
+                        <option value="sandbox">Sandbox</option>
+                        <option value="production">Production</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container mx-auto py-8">
+            <!-- Tabs -->
+            <div class="tabs tabs-boxed mb-8">
+                <button class="tab" 
+                        :class="{'tab-active': activeTab === 'category'}"
+                        @click="activeTab = 'category'">
+                    1. Agent Category
+                </button>
+                <button class="tab"
+                        :class="{'tab-active': activeTab === 'sources'}"
+                        @click="activeTab = 'sources'">
+                    2. Data Sources
+                </button>
+                <button class="tab"
+                        :class="{'tab-active': activeTab === 'criteria'}"
+                        @click="activeTab = 'criteria'">
+                    3. Evaluation Criteria
+                </button>
+            </div>
+
+            <!-- Category Selection -->
+            <div v-show="activeTab === 'category'" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div v-for="cat in categories"
+                         :key="cat.id"
+                         class="card bg-card hover:bg-accent cursor-pointer"
+                         :class="{'border-primary': config.category === cat.id}"
+                         @click="selectCategory(cat.id)">
+                        <div class="card-body">
+                            <h3 class="card-title">[[cat.name]]</h3>
+                            <p class="text-muted-foreground">[[cat.description]]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Sources -->
+            <div v-show="activeTab === 'sources'" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div v-for="(schema, source) in dataSources"
+                         :key="source"
+                         class="card bg-card">
+                        <div class="card-body">
+                            <h3 class="card-title">[[source]]</h3>
+                            <div class="space-y-4">
+                                <div v-for="(field, name) in schema"
+                                     :key="name"
+                                     class="form-control">
+                                    <label class="label">[[name]]</label>
+                                    <input v-if="field.type === 'string'"
+                                           v-model="config.sources[source][name]"
+                                           :type="name.includes('password') ? 'password' : 'text'"
+                                           :placeholder="field.description"
+                                           class="input input-bordered">
+                                    <input v-if="field.type === 'number'"
+                                           v-model.number="config.sources[source][name]"
+                                           type="number"
+                                           :placeholder="field.description"
+                                           class="input input-bordered">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evaluation Criteria -->
+            <div v-show="activeTab === 'criteria'" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="card bg-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Default Criteria</h3>
+                            <pre class="bg-muted p-4 rounded-lg overflow-auto">[[defaultCriteria]]</pre>
+                        </div>
+                    </div>
+                    <div class="card bg-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Custom Criteria</h3>
+                            <textarea v-model="config.customCriteria"
+                                    placeholder="Enter additional evaluation criteria..."
+                                    @input="previewCriteria"
+                                    class="textarea textarea-bordered h-40 w-full"></textarea>
+                            <div v-if="parsedCriteria" class="mt-4">
+                                <h4 class="font-semibold mb-2">Preview</h4>
+                                <pre class="bg-muted p-4 rounded-lg overflow-auto">[[parsedCriteria]]</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Run Section -->
+            <div class="fixed bottom-0 left-0 right-0 border-t bg-background p-4">
+                <div class="container mx-auto flex items-center justify-between">
+                    <div class="flex-1 mr-4">
+                        <input v-model="config.agentUrl"
+                               placeholder="Agent Endpoint URL"
+                               type="url"
+                               class="input input-bordered w-full">
+                    </div>
+                    <select v-model="config.mode"
+                            class="select select-bordered mr-4">
+                        <option value="standard">Standard Evaluation</option>
+                        <option value="battle">Battle Mode</option>
+                        <option value="team_battle">Team Battle</option>
+                    </select>
+                    <button @click="runBenchmark"
+                            :disabled="!isConfigValid"
+                            class="btn btn-primary">
+                        Run Benchmark
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div v-if="results" 
+                 class="fixed inset-0 bg-background/80 backdrop-blur-sm"
+                 @click.self="results = null">
+                <div class="container mx-auto mt-16 p-6">
+                    <div class="card bg-card">
+                        <div class="card-body">
+                            <div class="flex justify-between items-center mb-4">
+                                <h2 class="card-title">Results</h2>
+                                <button @click="results = null"
+                                        class="btn btn-ghost">Close</button>
+                            </div>
+                            <pre class="bg-muted p-4 rounded-lg overflow-auto">[[results]]</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html> 

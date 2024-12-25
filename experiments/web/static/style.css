@@ -1,0 +1,39 @@
+body {
+    font-family: system-ui, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.leaderboard {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.leaderboard th, .leaderboard td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.leaderboard th {
+    background: #f5f5f5;
+}
+
+.task-result {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+} 

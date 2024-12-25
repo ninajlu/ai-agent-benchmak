@@ -1,0 +1,10 @@
+simple-salesforce>=1.12.5
+synthetic-data-generator @ git+https://github.com/LondonWizard/Synthetic-Data-Generator.git 
+hubspot-api-client>=7.0.0
+google-auth>=2.0.0
+google-auth-oauthlib>=0.4.6
+google-auth-httplib2>=0.1.0
+google-api-python-client>=2.0.0
+slack-sdk>=3.0.0
+zenpy>=2.0.0
+intercom-python>=3.0.0 

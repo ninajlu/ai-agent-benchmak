@@ -1,0 +1,15 @@
+title: AI Agent Benchmarking Framework
+description: Standardized evaluation framework for business AI agents
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Custom settings
+github_username: ninajlu
+twitter_username: ninajlu 

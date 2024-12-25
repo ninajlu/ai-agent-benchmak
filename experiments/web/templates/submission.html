@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ details.metadata.agent_name }} - Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>{{ details.metadata.agent_name }}</h1>
+    
+    <h2>Metadata</h2>
+    <table>
+        <tr><td>Submitted:</td><td>{{ details.metadata.submitted_at }}</td></tr>
+        <tr><td>Version:</td><td>{{ details.metadata.version }}</td></tr>
+        <tr><td>Architecture:</td><td>{{ details.metadata.architecture }}</td></tr>
+    </table>
+
+    <h2>Results</h2>
+    {% for task in details.results.tasks %}
+    <div class="task-result">
+        <h3>{{ task.task_name }}</h3>
+        <table>
+            {% for metric, score in task.evaluation.items() %}
+            <tr>
+                <td>{{ metric }}</td>
+                <td>{{ score }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endfor %}
+
+    {% if details.verification %}
+    <h2>Verification</h2>
+    <table>
+        <tr><td>Status:</td><td>{{ "✅ Passed" if details.verification.passed else "❌ Failed" }}</td></tr>
+        <tr><td>Score Difference:</td><td>{{ "%.1f%%"|format(details.verification.comparison.score_diff * 100) }}</td></tr>
+        <tr><td>Verified Tasks:</td><td>{{ ", ".join(details.verification.tasks_verified) }}</td></tr>
+    </table>
+    {% endif %}
+</body>
+</html> 

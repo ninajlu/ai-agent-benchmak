@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <nav class="container">
+            <div class="logo">AI Agent Benchmark</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#getting-started">Get Started</a>
+                <a href="https://github.com/yourusername/ai-agent-benchmark">GitHub</a>
+            </div>
+        </nav>
+        
+        <div class="hero-content container">
+            <h1>AI Agent Benchmarking Framework</h1>
+            <p class="subtitle">Standardized evaluation for business AI agents</p>
+            <div class="cta-buttons">
+                <a href="#getting-started" class="btn btn-primary">Get Started</a>
+                <a href="https://github.com/yourusername/ai-agent-benchmark" class="btn btn-secondary">
+                    <i data-feather="github"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Grid -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i data-feather="users"></i>
+                    <h3>Role-Specific Evaluation</h3>
+                    <p>Tailored benchmarks for SDR, Marketing, Support, and more</p>
+                </div>
+                <div class="feature-card">
+                    <i data-feather="cpu"></i>
+                    <h3>LLM-as-Judge Architecture</h3>
+                    <p>Objective evaluation using language models</p>
+                </div>
+                <div class="feature-card">
+                    <i data-feather="database"></i>
+                    <h3>Flexible Data Sources</h3>
+                    <p>Connect to real or synthetic business data</p>
+                </div>
+                <div class="feature-card">
+                    <i data-feather="sliders"></i>
+                    <h3>Customizable Criteria</h3>
+                    <p>Define your own evaluation standards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Section -->
+    <section class="integrations">
+        <div class="container">
+            <h2>Supported Integrations</h2>
+            <div class="integration-logos">
+                <img src="assets/images/salesforce.svg" alt="Salesforce">
+                <img src="assets/images/hubspot.svg" alt="HubSpot">
+                <img src="assets/images/slack.svg" alt="Slack">
+                <img src="assets/images/gmail.svg" alt="Gmail">
+                <img src="assets/images/gdrive.svg" alt="Google Drive">
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started -->
+    <section id="getting-started" class="getting-started">
+        <div class="container">
+            <h2>Getting Started</h2>
+            <div class="code-example">
+                <pre><code>pip install git+https://github.com/yourusername/ai-agent-benchmark.git</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">
+                    <i data-feather="copy"></i>
+                </button>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Choose Category</h3>
+                    <p>Select your agent type and evaluation criteria</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Configure Data</h3>
+                    <p>Set up data sources and sandbox environments</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Run Benchmark</h3>
+                    <p>Execute tests and get detailed results</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Battle Mode Promo -->
+    <section class="battle-mode">
+        <div class="container">
+            <div class="battle-content">
+                <h2>Coming Soon: AI Agent Battles! 🚀</h2>
+                <p>Pit teams of specialized AI agents against each other in complex business scenarios</p>
+                <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <a href="#">API Reference</a>
+                    <a href="#">Integration Guide</a>
+                    <a href="#">Best Practices</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <a href="#">GitHub</a>
+                    <a href="#">Discord</a>
+                    <a href="#">Twitter</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">License</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather icons
+        feather.replace()
+
+        // Copy code function
+        function copyCode(button) {
+            const pre = button.parentElement.querySelector('pre')
+            navigator.clipboard.writeText(pre.textContent)
+            
+            button.innerHTML = '<i data-feather="check"></i>'
+            feather.replace()
+            
+            setTimeout(() => {
+                button.innerHTML = '<i data-feather="copy"></i>'
+                feather.replace()
+            }, 2000)
+        }
+    </script>
+</body>
+</html> 

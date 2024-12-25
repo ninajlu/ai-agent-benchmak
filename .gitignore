@@ -71,7 +71,6 @@ credentials.json
 docs/_site/
 docs/.jekyll-cache/
 docs/.jekyll-metadata
-docs/assets/images/*.svg
 
 # Test coverage
 .coverage

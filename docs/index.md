@@ -67,7 +67,7 @@ As AI agents become more prevalent in business operations, companies need a stan
 
 1. Install the package:
 ```bash
-pip install git+https://github.com/yourusername/ai-agent-benchmark.git
+pip install git+https://github.com/ninajlu/ai-agent-benchmark.git
 ```
 
 2. Create a benchmark configuration:
@@ -432,3 +432,7 @@ We welcome contributions! See our [Contributing Guide](CONTRIBUTING.md) for:
 - Submission guidelines
 - Code standards
 - Testing requirements
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 

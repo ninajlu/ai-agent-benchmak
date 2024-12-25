@@ -5,7 +5,7 @@ url: "https://ninajlu.github.io"
 
 # Build settings
 markdown: kramdown
-remote_theme: pages-themes/cayman@v0.2.0
+remote_theme: pages-themes/cayman
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
@@ -13,6 +13,7 @@ plugins:
 
 # Theme settings
 show_downloads: true
+theme: jekyll-theme-cayman
 
 github:
   is_project_page: true

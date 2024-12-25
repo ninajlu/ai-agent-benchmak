@@ -142,17 +142,22 @@ body {
     flex-wrap: wrap;
     margin: 2rem 0;
     
-    img {
-        height: 48px;
-        width: 48px;
-        opacity: 0.8;
-        transition: opacity 0.2s;
-        display: block;
-        object-fit: contain;
+    i {
+        font-size: 2.5rem;
+        opacity: 0.85;
+        transition: all 0.2s;
+        color: var(--text);
         
         &:hover {
             opacity: 1;
+            transform: scale(1.1);
         }
+        
+        &.fa-salesforce { color: #00A1E0; }
+        &.fa-hubspot { color: #FF7A59; }
+        &.fa-slack { color: #4A154B; }
+        &.fa-google { color: #4285F4; }
+        &.fa-google-drive { color: #4285F4; }
     }
 }
 
